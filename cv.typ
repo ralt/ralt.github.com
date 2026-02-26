@@ -6,7 +6,6 @@
     lastname: "Margaine",
     email: "florian@margaine.com",
     homepage: "https://margaine.com",
-    phone: "",
     github: "ralt",
     address: "Marseille area, France",
     positions: (
