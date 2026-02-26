@@ -22,7 +22,7 @@
     ),
   ),
   keywords: ("Field CTO", "cloud infrastructure", "PaaS", "container security", "distributed systems", "platform migrations", "engineering leadership"),
-  description: "Hands-on engineering leader with 15+ years in software and 10+ at Platform.sh / Upsun",
+  description: "Hands-on engineering leader with 15+ years in software and 10+ at Upsun (formerly Platform.sh)",
   profile-picture: none,
   date: datetime.today().display(),
   language: "en",
@@ -33,12 +33,12 @@
 
 = Summary
 
-Hands-on engineering leader with 15+ years in software and 10+ at Platform.sh / Upsun. Bridges business strategy and deep infrastructure expertise — from container networking and storage optimization to enterprise migration planning. Open-source enthusiast with contributions to Linux kernel, PHP, and Node.js. Prolific technical writer with numerous deep-dive articles on cloud infrastructure, container security, and distributed systems.
+Hands-on engineering leader with 15+ years in software and 10+ at Upsun (formerly Platform.sh). Bridges business strategy and deep infrastructure expertise — from container networking and storage optimization to enterprise migration planning. Open-source enthusiast with contributions to Linux kernel, PHP, and Node.js. Prolific technical writer with numerous deep-dive articles on cloud infrastructure, container security, and distributed systems.
 
 = Experience
 
 #resume-entry(
-  title: "Platform.sh / Upsun",
+  title: "Upsun (formerly Platform.sh)",
   location: "Remote, France",
   date: "Jun 2015 - Present",
 )

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Florian Margaine — Field CTO</title>
+<meta name="description" content="Florian Margaine — Field CTO at Upsun (formerly Platform.sh). Engineering leader, open-source contributor, technical writer.">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#f6f6f9;
+  --surface:#ffffff;
+  --border:#e0e0e8;
+  --text:#1a1a2e;
+  --muted:#5c5c72;
+  --accent:#4a6cf7;
+  --accent-dim:#3b5bdb;
+  --glow:rgba(74,108,247,.06);
+}
+
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0a0a0f;
+    --surface:#12121a;
+    --border:#1e1e2e;
+    --text:#e0e0e6;
+    --muted:#9a9ab0;
+    --accent:#6e8cff;
+    --accent-dim:#4a60cc;
+    --glow:rgba(110,140,255,.08);
+  }
+}
+
+:root[data-theme="dark"]{
+  --bg:#0a0a0f;
+  --surface:#12121a;
+  --border:#1e1e2e;
+  --text:#e0e0e6;
+  --muted:#9a9ab0;
+  --accent:#6e8cff;
+  --accent-dim:#4a60cc;
+  --glow:rgba(110,140,255,.08);
+}
+
+html{font-size:16px}
+
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:2rem;
+  line-height:1.6;
+  -webkit-font-smoothing:antialiased;
+}
+
+.container{
+  max-width:640px;
+  width:100%;
+}
+
+/* Header */
+.name{
+  font-size:2.5rem;
+  font-weight:700;
+  letter-spacing:-.03em;
+  line-height:1.15;
+  margin-bottom:.25rem;
+}
+
+.name span{
+  color:var(--accent);
+}
+
+.title{
+  font-size:1.05rem;
+  color:var(--muted);
+  font-weight:400;
+  margin-bottom:.15rem;
+}
+
+.location{
+  font-size:.875rem;
+  color:var(--muted);
+  margin-bottom:2.5rem;
+}
+
+/* Divider */
+.divider{
+  height:1px;
+  background:linear-gradient(90deg,var(--accent-dim),transparent);
+  margin-bottom:2.5rem;
+  max-width:120px;
+}
+
+/* Bio */
+.bio{
+  font-size:.95rem;
+  color:var(--muted);
+  line-height:1.7;
+  margin-bottom:2.5rem;
+}
+
+.bio strong{
+  color:var(--text);
+  font-weight:500;
+}
+
+/* Links */
+.links{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.75rem;
+  list-style:none;
+}
+
+.links a{
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  padding:.6rem 1.1rem;
+  border:1px solid var(--border);
+  border-radius:8px;
+  color:var(--text);
+  text-decoration:none;
+  font-size:.875rem;
+  font-weight:450;
+  background:var(--surface);
+  transition:all .2s ease;
+  position:relative;
+  overflow:hidden;
+}
+
+.links a::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:var(--glow);
+  opacity:0;
+  transition:opacity .2s ease;
+}
+
+.links a:hover{
+  border-color:var(--accent-dim);
+  transform:translateY(-2px);
+  box-shadow:0 4px 20px rgba(110,140,255,.1);
+}
+
+.links a:hover::before{
+  opacity:1;
+}
+
+.links a:hover svg{
+  color:var(--accent);
+}
+
+.links svg{
+  width:16px;
+  height:16px;
+  flex-shrink:0;
+  color:var(--muted);
+  transition:color .2s ease;
+}
+
+/* CV link */
+.cv-link{
+  margin-top:2.5rem;
+}
+
+.cv-link a{
+  display:inline-flex;
+  align-items:center;
+  gap:.4rem;
+  font-size:.8rem;
+  color:var(--muted);
+  text-decoration:none;
+  opacity:.6;
+  transition:all .2s ease;
+}
+
+.cv-link a:hover{
+  opacity:1;
+  color:var(--accent);
+}
+
+/* Theme toggle */
+.theme-toggle{
+  position:fixed;
+  top:1.25rem;
+  right:1.25rem;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:20px;
+  width:44px;
+  height:24px;
+  cursor:pointer;
+  padding:2px;
+  transition:all .3s ease;
+  display:flex;
+  align-items:center;
+}
+
+.theme-toggle:hover{
+  border-color:var(--accent-dim);
+}
+
+.theme-toggle .knob{
+  width:18px;
+  height:18px;
+  border-radius:50%;
+  background:var(--accent);
+  transition:transform .3s ease;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.theme-toggle .knob svg{
+  width:11px;
+  height:11px;
+  color:var(--surface);
+}
+
+.theme-toggle[aria-checked="true"] .knob{
+  transform:translateX(20px);
+}
+
+/* Focus */
+:focus-visible{
+  outline:2px solid var(--accent);
+  outline-offset:2px;
+}
+
+.links a:focus-visible{
+  border-color:var(--accent-dim);
+  box-shadow:0 0 0 3px var(--glow);
+}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{
+    transition:none !important;
+    animation:none !important;
+  }
+  .links a:hover{transform:none}
+  .theme-toggle .knob{transition:none}
+}
+
+/* Responsive */
+@media(max-width:480px){
+  body{padding:1.5rem}
+  .name{font-size:2rem}
+  .links{gap:.5rem}
+  .links a{padding:.5rem .9rem;font-size:.8rem}
+}
+</style>
+</head>
+<body>
+
+<main class="container">
+  <h1 class="name">Florian <span>Margaine</span></h1>
+  <p class="title">Field CTO at Upsun (formerly Platform.sh)</p>
+  <p class="location">Marseille area, France</p>
+
+  <div class="divider" role="presentation"></div>
+
+  <p class="bio">
+    Engineering leader with <strong>15+ years</strong> building software and teams.
+    Open-source enthusiast with a soft spot for systems programming.
+    Writing about container security, distributed systems, and cloud infrastructure.
+  </p>
+
+  <ul class="links">
+    <li>
+      <a href="https://www.linkedin.com/in/florian-margaine-43971136/" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+    </li>
+    <li>
+      <a href="https://github.com/ralt" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
+    </li>
+    <li>
+      <a href="https://devcenter.upsun.com/community/engage/people/ralt/" rel="noopener">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+        Writing
+      </a>
+    </li>
+    <li>
+      <a href="mailto:florian@margaine.com">
+        <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+        Email
+      </a>
+    </li>
+  </ul>
+
+  <div class="cv-link">
+    <a href="cv.pdf">
+      <svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      Download CV
+    </a>
+  </div>
+</main>
+
+<button class="theme-toggle" role="switch" aria-checked="false" aria-label="Toggle dark mode">
+  <span class="knob">
+    <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+  </span>
+</button>
+
+<script>
+(function(){
+  var toggle=document.querySelector('.theme-toggle');
+  var root=document.documentElement;
+  var sun=toggle.querySelector('.icon-sun');
+  var moon=toggle.querySelector('.icon-moon');
+  var stored=localStorage.getItem('theme');
+  var prefersDark=window.matchMedia('(prefers-color-scheme:dark)').matches;
+  var dark=stored?stored==='dark':prefersDark;
+
+  function apply(d){
+    dark=d;
+    root.setAttribute('data-theme',d?'dark':'light');
+    toggle.setAttribute('aria-checked',String(d));
+    sun.style.display=d?'none':'block';
+    moon.style.display=d?'block':'none';
+  }
+
+  apply(dark);
+
+  toggle.addEventListener('click',function(){
+    apply(!dark);
+    localStorage.setItem('theme',dark?'dark':'light');
+  });
+
+  window.matchMedia('(prefers-color-scheme:dark)').addEventListener('change',function(e){
+    if(!localStorage.getItem('theme')){apply(e.matches)}
+  });
+})();
+</script>
+
+</body>
+</html>
